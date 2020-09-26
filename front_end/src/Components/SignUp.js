@@ -129,6 +129,8 @@ class SignUp extends Component{
                 password: this.state.password,
                 url:"Name: "+ this.state.name +"\nNIC: "+ this.state.nic +"\nContact Number: "+ this.state.contactNumber +"\nEmail: "+ this.state.email
             }
+                this.props.registerUser(user, this.props.history);
+
             // console.log(user);
             // axios.post("/user/add", user)
             //     .then(res => console.log(res))

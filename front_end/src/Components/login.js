@@ -47,12 +47,12 @@ class login extends Component{
     };
     onSubmit = e => {
         e.preventDefault();
-        const userData = {
+        const user = {
             email: this.state.email,
             password: this.state.password
         };
-        this.props.loginUser(userData);
-        console.log(userData);
+        this.props.loginUser(user);
+        console.log(user);
     };
 
 
@@ -133,7 +133,7 @@ class login extends Component{
                                    onChange={this.onChange}
                                    value={this.state.password}
                                    error={errors.password}
-                                   id="email"
+                                   id="password"
                                    type="password"
                                    className={classnames("", {
                                        invalid: errors.password || errors.passwordincorrect
