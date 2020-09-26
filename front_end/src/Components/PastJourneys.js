@@ -5,6 +5,8 @@ import visa from '../assets/images/visa.png';
 import master from '../assets/images/Master.png';
 import css from '../assets/css/topup.css';
 import axios from 'axios';
+import Footer from "./footer"
+
 
 
 class PastJourneys extends Component{
@@ -163,6 +165,7 @@ class PastJourneys extends Component{
                         </Col>
                     </Row>
                 </Container>
+                <Footer/>
 
             </div>
         );

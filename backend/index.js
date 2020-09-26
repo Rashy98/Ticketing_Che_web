@@ -5,6 +5,8 @@ const express = require('express');
 const port = process.env.PORT || 8000;
 const app = express();
 const router = require('express').Router();
+const passport = require("passport");
+
 
 
 app.use(express.json());
@@ -16,6 +18,13 @@ const Users= require('../backend/Routes/User.routes');
 
 app.use('/busStand', BusStands);
 app.use('/user', Users);
+
+//Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// // Routes
+// app.use("/api/users", users);
 
 
 

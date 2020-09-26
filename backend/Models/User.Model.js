@@ -5,29 +5,35 @@ const schema = mongoose.Schema;
 
 const UserSchema =  new schema(
     {
-        Name:{
-            type:String
+        name:{
+            type:String,
+            required: true
         },
         email:{
-            type:String
+            type:String,
+            required: true
         },
         password:{
-            type:String
+            type:String,
+            required: true
         },
-        Nic:{
-          type:String
+        nic:{
+          type:String,
+            required: true
         },
-        contactNo:{
-            type:Number
+        contactNumber:{
+            type:Number,
+            required: true
         },
         generatedQR:{
-            type:Buffer
+            type:String
         },
         history:{
             type:Array
         },
         Credits:{
-            type:Number
+            type:Number,
+            default:100
         },
         TravelAccount:{
             type: String

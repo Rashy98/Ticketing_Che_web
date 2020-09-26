@@ -5,6 +5,8 @@ import visa from '../assets/images/visa.png';
 import master from '../assets/images/Master.png';
 import css from '../assets/css/topup.css';
 import axios from 'axios';
+import Footer from "./footer"
+
 
 
 class TopUp extends Component{
@@ -212,9 +214,14 @@ class TopUp extends Component{
                     </Col>
                 </Row>
                 </Container>
+                <br/><br/><br/><br/>
+                <Footer/>
+
 
             </div>
+
         );
+
     }
 }
 
