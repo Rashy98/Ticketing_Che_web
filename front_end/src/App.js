@@ -38,11 +38,12 @@ function App() {
       <Provider store={store}>
            <Router>
 
-                 {/*<Route path="/History" exact component={PastJourneys}/>*/}
                  <Route path="/SignUp" exact component={SignUp}/>
                  <Route path="/Login" exact component={Login}/>
                  <Switch>
                      <PrivateRoute exact path="/" component={TopUp} />
+                     <PrivateRoute path="/History" exact component={PastJourneys}/>
+
                  </Switch>
            </Router>
       </Provider>

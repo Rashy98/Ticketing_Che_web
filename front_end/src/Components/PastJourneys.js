@@ -1,11 +1,15 @@
 import React,{Component} from "react";
-import {Row,Col,Container} from 'react-bootstrap';
+import {Row, Col, Container, Navbar, Nav} from 'react-bootstrap';
 import NavBar from "./Navbar";
 import visa from '../assets/images/visa.png';
 import master from '../assets/images/Master.png';
 import css from '../assets/css/topup.css';
 import axios from 'axios';
 import Footer from "./footer"
+import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {logoutUser} from "../actions/authActions";
 
 
 
@@ -115,11 +119,72 @@ class PastJourneys extends Component{
         }
 
     }
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+    };
 
     render() {
+        const {user} = this.props.auth
+        console.log(user)
         return (
             <div style={{backgroundColor:'lightgrey' , height:'62em'}}>
-                <NavBar/>
+                <Navbar style={{
+                    backgroundImage: 'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))',
+                    height: '8em',
+                    width: "100%"
+                }} expand="lg">
+                    <Navbar.Brand>
+                        <Link to='/'>
+                            <p className="menu__logo navbar-brand "
+                               style={{
+                                   fontSize: '2.5em',
+                                   marginLeft: '2em',
+                                   fontWeight: 'bold',
+                                   color: 'white'
+                               }}>Destino</p>
+                        </Link>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link>
+                                <Link className=" nav-link " to="/" style={{color: 'white', fontSize: '1.2em'}}>
+                                    Top Up account
+                                </Link>
+                            </Nav.Link>
+                            <Nav.Link>
+                                <Link className=" nav-link " to="/History" style={{color: 'white', fontSize: '1.2em'}}>
+                                    View Past Journeys
+                                </Link>
+                            </Nav.Link>
+                            <Nav.Link>
+                                <Link className=" nav-link " to="" style={{color: 'white', fontSize: '1.2em'}}>
+                                    Help
+                                </Link>
+                            </Nav.Link>
+
+                            {/*<Nav>*/}
+                            {/*    <Nav.Link><a className=" nav-link mr-sm-2" style={{color: 'white', fontSize: '1.2em'}}>*/}
+                            {/*        Logout*/}
+                            {/*    </a>*/}
+                            {/*    </Nav.Link>*/}
+                            {/*</Nav>*/}
+                        </Nav>
+                        <button
+                            style={{
+                                width: "150px",
+                                borderRadius: "3px",
+                                letterSpacing: "1.5px",
+                                marginTop: "1rem"
+                            }}
+                            onClick={this.onLogoutClick}
+                            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                        >
+                            Logout
+                        </button>
+                    </Navbar.Collapse>
+                </Navbar>
                 <Row style ={{backgroundColor:'white', display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
@@ -171,5 +236,16 @@ class PastJourneys extends Component{
         );
     }
 }
+PastJourneys.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+export default connect(
+    mapStateToProps,
+    { logoutUser }
+)(PastJourneys);
 
-export default PastJourneys;
+

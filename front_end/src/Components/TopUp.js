@@ -170,11 +170,7 @@ class TopUp extends Component{
                                     Help
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
-                                <Link className=" nav-link " to="/SignUp" style={{color: 'white', fontSize: '1.2em'}}>
-                                    Register
-                                </Link>
-                            </Nav.Link>
+
                             {/*<Nav>*/}
                             {/*    <Nav.Link><a className=" nav-link mr-sm-2" style={{color: 'white', fontSize: '1.2em'}}>*/}
                             {/*        Logout*/}
