@@ -128,7 +128,7 @@ class PastJourneys extends Component{
         const {user} = this.props.auth
         console.log(user)
         return (
-            <div style={{backgroundColor:'lightgrey' , height:'62em'}}>
+            <div style={{backgroundColor:'lightgrey' , minHeight:'30em',width:'101%'}}>
                 <Navbar style={{
                     backgroundImage: 'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))',
                     height: '8em',
@@ -173,13 +173,16 @@ class PastJourneys extends Component{
                         </Nav>
                         <button
                             style={{
-                                width: "150px",
-                                borderRadius: "3px",
+                                width: "120px",
+                                borderRadius: "20px",
                                 letterSpacing: "1.5px",
-                                marginTop: "1rem"
+                                marginTop: "1rem",
+                                marginRight:"2rem",
+                                color:"black",
+                                backgroundColor:'white'
                             }}
                             onClick={this.onLogoutClick}
-                            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                            className="btn btn-medium "
                         >
                             Logout
                         </button>
@@ -190,7 +193,7 @@ class PastJourneys extends Component{
                     justifyContent: 'center',
                     textAlign: 'center'}}> <h1 style={{fontFamily:'monospace'}}>Past Journeys</h1></Row>
 
-                <Container className='mt-5 ' style={{width:'50em'}}>
+                <Container className='mt-5 ' style={{width:'50em',minHeight:'40em'}}>
 
                     <Row style ={{backgroundColor:'white'}}>
                         <Col xs style ={{marginLeft:'1em',marginBottom:'5em'}}>
@@ -230,6 +233,7 @@ class PastJourneys extends Component{
                         </Col>
                     </Row>
                 </Container>
+                <br/><br/>
                 <Footer/>
 
             </div>

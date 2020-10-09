@@ -135,7 +135,7 @@ class TopUp extends Component{
         const {user} = this.props.auth
         console.log(user)
         return (
-            <div style={{backgroundColor:'lightgrey' , height:'62em'}}>
+            <div style={{backgroundColor:'lightgrey' , height:'62em',width:'101%'}}>
                 <Navbar style={{
                     backgroundImage: 'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))',
                     height: '8em',
@@ -180,13 +180,16 @@ class TopUp extends Component{
                         </Nav>
                         <button
                             style={{
-                                width: "150px",
-                                borderRadius: "3px",
+                                width: "120px",
+                                borderRadius: "20px",
                                 letterSpacing: "1.5px",
-                                marginTop: "1rem"
+                                marginTop: "1rem",
+                                marginRight:"2rem",
+                                color:"black",
+                                backgroundColor:'white'
                             }}
                             onClick={this.onLogoutClick}
-                            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                            className="btn btn-medium "
                         >
                             Logout
                         </button>
@@ -197,14 +200,14 @@ class TopUp extends Component{
                     justifyContent: 'center',
                     textAlign: 'center'}}> <h1 style={{fontFamily:'monospace'}}>Top up account</h1></Row>
 
-                <Container className='mt-5'>
+                <Container className='mt-5'  >
                     <Row><Col><h5>Recharge wallet</h5></Col><Col><h5>Current Wallet</h5></Col></Row>
                 <Row style ={{backgroundColor:'white'}}>
-                <Col  >
+                <Col style ={{width:'101%'}} >
 
                     <form className='form-inline mt-5'>
                         <label>Add Amount</label>
-                        <input type='number' style={{borderRadius:'0.4em'}} className='ml-5' placeholder='0.00' onChange={this.onAmountChange}
+                        <input type='number' style={{borderRadius:'0.4em'}} className='ml-5' placeholder='Amount in LKR' onChange={this.onAmountChange}
                                value={this.state.amount} required/>
                     </form>
                     <form className='form-inline mt-5'>
@@ -221,10 +224,10 @@ class TopUp extends Component{
                         <input type='text' style={{borderRadius:'0.4em'}} className='ml-5' placeholder='Name on card' onChange={this.onChangeName}  value={this.state.name}/>
                     </form>
                     <br/>
-                    <input type='text' style={{borderRadius:'0.4em',marginLeft:'8.2em'}} placeholder='Card Number' required/>
+                    <input type='text' style={{borderRadius:'0.4em',width:'92%'}} className='ml-5'placeholder='Card Number' required/>
 
                     <form className='form-inline mt-3'>
-                        <input type='text' style={{borderRadius:'0.4em',marginLeft:'8.2em',width:'3em'}} placeholder='CSV' onChange={this.onChangeCSV} value={this.state.csv}/>
+                        <input type='text' style={{borderRadius:'0.4em',marginLeft:'2.9em',width:'3em'}} placeholder='CSV' onChange={this.onChangeCSV} value={this.state.csv}/>
                         <input type='text' style={{borderRadius:'0.4em',marginLeft:'1.7em',width:'3em'}} placeholder='MM' onChange={this.onChangeMM} value={this.state.mm}/>
                         <input type='text' style={{borderRadius:'0.4em',marginLeft:'1.7em',width:'3em'}} placeholder='YY' onChange={this.onChangeYY} value={this.state.yy}/>
                     </form>
@@ -242,7 +245,7 @@ class TopUp extends Component{
                         position: 'absolute',
                         left: '50%',
                         marginLeft: '-3px',
-                        marginTop:'15.8em',
+                        marginTop:'20.8em',
                         top: '0'}} />
                     <Col xs style ={{marginLeft:'1em'}}>
                         <form className='form-inline mt-5'>
@@ -280,8 +283,9 @@ class TopUp extends Component{
                     </Col>
                 </Row>
                 </Container>
-                <br/><br/><br/><br/>
-                <Footer/>
+                <br/><br/>
+                <Footer>
+                </Footer>
 
 
             </div>

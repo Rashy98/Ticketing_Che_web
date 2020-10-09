@@ -101,13 +101,13 @@ class login extends Component{
                 {/*<div className="footer">*/}
                 {/*    <img src={this.state.qrcode} alt="Logo" />;*/}
                 {/*</div>*/}
-                <Container className='mt-5 mb-3 ' style={{width:'40em',height:'35em',backgroundColor:"White",borderRadius:'20px'}}>
+                <Container className='mt-5 mb-3 ' style={{width:'40em',height:'36em',backgroundColor:"White",borderRadius:'20px'}}>
                     <form noValidate onSubmit={this.onSubmit}>
                         <br/>
-                        <div className=" mt-2">
+                        <div className=" ">
                             <img src={login1} alt="Logo" style={{height:"150px",marginLeft:"30%"}}/>;
                         </div>
-                        <br/>
+
                         <div className="form-group">
                             <label>Email</label>
                             <input type="text" className="form-control" placeholder="Email"
@@ -125,7 +125,7 @@ class login extends Component{
                                 {errors.emailnotfound}
                             </span>
                         </div>
-                        <br/>
+
 
                         <div className="form-group">
                             <label>Password</label>
@@ -153,6 +153,7 @@ class login extends Component{
                     </form>
 
                 </Container>
+          <br/><br/><br/><br/><br/>
                 <Footer/>
 
             </div>

@@ -157,7 +157,7 @@ class SignUp extends Component{
     render() {
         const {errors} = this.state;
         return (
-            <div style={{backgroundColor: 'linear-gradient(RGBA(182,82,80))', height: '50vh',width:"100%"}}>
+            <div style={{backgroundColor: 'linear-gradient(RGBA(182,82,80))', minHeight: '80vh',width:"100%"}}>
                 <Navbar style={{backgroundImage: 'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))', height: '8em'}}
                         expand="lg">
                     <Navbar.Brand>
@@ -195,15 +195,15 @@ class SignUp extends Component{
                 {/*<div className="footer">*/}
                 {/*    <img src={this.state.qrcode} alt="Logo" />;*/}
                 {/*</div>*/}
-                <Container className='mt-2 mb-3 '
-                           style={{width: '40em', height: '35em', backgroundColor: "White", borderRadius: '20px'}}>
+                <Container className='mt-2 mb-1 '
+                           style={{width: '40em', height: '47em', backgroundColor: "White", borderRadius: '20px'}}>
 
                     <form noValidate onSubmit={this.onSubmit}>
 
 
                         <div className="form-group mt-2">
-                            <label className="mt-2">Name</label>
-                            <input type="text" className="form-control" placeholder="Enter Name..."
+                            <label className="mt-2 mb-2">Name</label>
+                            <input type="text" className="form-control mt-lg-n4 " placeholder="Enter Name..."
                                    onChange={this.onChangeName}
                                    value={this.state.name}
                                    error={errors.name}
@@ -215,7 +215,7 @@ class SignUp extends Component{
                         </div>
 
                         <div className="form-group mt-n2">
-                            <label>NIC</label>
+                            <label className="mb-n5">NIC</label>
                             <input type="text" className="form-control" placeholder="Enter NIC..."
                                    onChange={this.onChangeNic}
                                    value={this.state.nic}
@@ -227,7 +227,7 @@ class SignUp extends Component{
                             <span className="red-text">{errors.nic}</span>
                         </div>
                         <div className="form-group mt-n2">
-                            <label>Contact Number</label>
+                            <label className="mb-n5">Contact Number</label>
                             <input type="text" className="form-control" placeholder="Enter Contact Number..."
                                    onChange={this.onChangeContactNumber}
                                    value={this.state.contactNumber}
@@ -239,26 +239,10 @@ class SignUp extends Component{
                             <span className="red-text">{errors.contactNumber}</span>
 
                         </div>
-                        <div className="form-group mt-n2">
-                            <label>Travel Account Type</label>
-                            <select className="form-control " id="ProgInputSelect"
-                                    onChange={this.onChangeAccountType}
-                                    error={errors.TravelAccount}
-                                    className={classnames("", {
-                                        invalid: errors.TravelAccount
-                                    })}
 
-                            >
-                                <option selected style={{fontSize:'15px'}}>Select Account Type...</option>
-                                <option value="Pay As You Go">Pay As You Go</option>
-                                <option value="Other">Other</option>
-
-                            </select>
-                            <span className="red-text">{errors.TravelAccount}</span>
-                        </div>
 
                         <div className="form-group mt-n2">
-                            <label>Email Address</label>
+                            <label className="mb-n5">Email Address</label>
                             <input type="email" className="form-control" placeholder="Enter Email..."
                                    onChange={this.onChangeEmail}
                                    value={this.state.email}
@@ -271,7 +255,7 @@ class SignUp extends Component{
                         </div>
 
                         <div className="form-group mt-n2">
-                            <label>Password</label>
+                            <label className="mb-n5">Password</label>
                             <input type="password" className="form-control" placeholder="Enter Password..."
                                    onChange={this.onChangePassword}
                                    value={this.state.password}
@@ -282,6 +266,25 @@ class SignUp extends Component{
                             />
                             <span className="red-text">{errors.password}</span>
                         </div>
+                        <div className="form-group mt-n2">
+                            <label className="mb-n5">Travel Account Type</label>
+                            <select className="form-control " id="ProgInputSelect"
+                                    onChange={this.onChangeAccountType}
+                                    style={{borderBottom:'1px solid grey', display:'block'}}
+                                    error={errors.TravelAccount}
+                                    className={classnames("", {
+                                        invalid: errors.TravelAccount
+                                    })}
+
+                            >
+                                <option style={{fontSize:'15px'}} value=" ">Select Account Type...</option>
+                                <option value="Pay As You Go">Pay As You Go</option>
+                                <option value="Other">Other</option>
+
+                            </select>
+                            <span className="red-text">{errors.TravelAccount}</span>
+                        </div>
+
 
 
                         <button type="submit" className="btn btn-primary btn-block"
@@ -292,6 +295,7 @@ class SignUp extends Component{
                     </form>
 
                 </Container>
+                <br/><br/><br/><br/>
                 <Footer/>
 
             </div>
