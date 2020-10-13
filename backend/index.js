@@ -15,9 +15,11 @@ app.use(bodyParser.json());
 
 const BusStands= require('../backend/Routes/BusStands.routes');
 const Users= require('../backend/Routes/User.routes');
+const Reports = require('../backend/Routes/Reports.routes');
 
 app.use('/busStand', BusStands);
 app.use('/user', Users);
+app.use('/reports', Reports);
 
 //Passport middleware
 app.use(passport.initialize());
