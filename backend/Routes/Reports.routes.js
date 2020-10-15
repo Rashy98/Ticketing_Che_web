@@ -4,12 +4,16 @@ const express = require('express');
 const router = require('express').Router();
 let BusStands = require('../Models/BusStands.Model');
 let User = require('../Models/User.Model');
+let Inspections = require('../Models/Inspection.Model');
 
 const app = express();
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+/**
+ * will return details to generate user reports
+ */
 router.route("/getUsers").get(async (req, res) => {
 
     //declaration of variables
@@ -17,8 +21,10 @@ router.route("/getUsers").get(async (req, res) => {
     let arr_endStations = [];
     let arr_journeys = []
 
+    //get user details
     let users = await User.find();
 
+    //process each user journeys
     for (let user of users){
         let arr_journeyHistory = user.history;
 
@@ -33,6 +39,7 @@ router.route("/getUsers").get(async (req, res) => {
                 let isEndStationFound = arr_endStations.filter(obj => obj.station === journey.End);
                 let isJourneyFound = arr_journeys.filter(obj => (obj.from === journey.Start) && (obj.to === journey.End));
 
+                //add all distinct start stations
                 if (isStartStationFound.length === 0){
                     arr_startStations.push({station : journey.Start, count : 1})
                 } else {
@@ -42,6 +49,7 @@ router.route("/getUsers").get(async (req, res) => {
                     arr_startStations.push(tempStartStation[0]);
                 }
 
+                //add all distinct end stations
                 if (isEndStationFound.length === 0){
                     arr_endStations.push({station : journey.End, count : 1})
                 } else {
@@ -51,6 +59,7 @@ router.route("/getUsers").get(async (req, res) => {
                     arr_endStations.push(tempEndStation[0]);
                 }
 
+                //add all distinct user journeys
                 if (isJourneyFound.length === 0){
                     arr_journeys.push({from : journey.Start, to : journey.End, count : 1})
                 } else {
@@ -62,17 +71,39 @@ router.route("/getUsers").get(async (req, res) => {
             }
         }
     }
-    // console.log('============================== Start Stations ============================================')
-    // console.log(arr_startStations)
-    // console.log('\n============================== End Stations ============================================')
-    // console.log(arr_endStations)
-    // console.log('\n============================== Journeys ============================================')
-    // console.log(arr_journeys)
 
     if (users){
         return res.status(200).json({success : true, startStations : arr_startStations, endStations : arr_endStations, journeys : arr_journeys})
     } else {
         return res.status(400).json({success : false, users : "Failed to load"})
+    }
+});
+
+/**
+ * will returns details to generate inspections report
+ */
+router.route('/getInspections').get(async (req, res) => {
+
+    let result = await Inspections.find();
+
+    if (result) {
+        return res.status(200).json({success : true, result : result});
+    } else {
+        return res.status(400).json({success : false, error : "Server Error"});
+    }
+});
+
+/**
+ * will return details to generate fare reports
+ */
+router.route('/getBusStand').get(async (req, res) => {
+
+    let result = await BusStands.find();
+
+    if (result) {
+        return res.status(200).json({success : true, result : result});
+    } else {
+        return res.status(400).json({success : false, error : "Server Error"});
     }
 })
 
