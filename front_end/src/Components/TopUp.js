@@ -167,7 +167,7 @@ class TopUp extends Component{
                                 </Link>
                             </Nav.Link>
                             <Nav.Link>
-                                <Link className=" nav-link " to="" style={{color: 'white', fontSize: '1.2em'}}>
+                                <Link className=" nav-link " to="/Help" style={{color: 'white', fontSize: '1.2em'}}>
                                     Help
                                 </Link>
                             </Nav.Link>
