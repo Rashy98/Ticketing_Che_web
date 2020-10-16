@@ -4,7 +4,7 @@ import { Nav, NavItem, NavDropdown, MenuItem, Form} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../actions/authActions";
+import { logoutUser } from "../../actions/authActions";
 
 
 

@@ -1,11 +1,11 @@
 import React,{Component} from "react";
 import {Row, Col, Container, Navbar, Nav} from 'react-bootstrap';
-import NavBar from "./Navbar";
+import NavBar from "./Common/Navbar";
 import visa from '../assets/images/visa.png';
 import master from '../assets/images/Master.png';
 import css from '../assets/css/topup.css';
 import axios from 'axios';
-import Footer from "./footer"
+import Footer from "./Common/footer"
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
@@ -72,7 +72,7 @@ class PastJourneys extends Component{
         axios.get("/user/").then(response => {
             console.log(response.data);
             for(let x = 0 ; x < response.data.length; x++){
-                if(response.data[x]._id === "5f6754a91cc10b4a5c380ba7"){
+                if(response.data[x]._id === this.props.auth.user.id){
                     this.setState({
                             earlierCred : response.data[x].Credits,
                             history : response.data[x].history
@@ -111,7 +111,7 @@ class PastJourneys extends Component{
                 Credits: newCredit
             }
 
-            axios.post("/user/updateCredit/5f6754a91cc10b4a5c380ba7", credits)
+            axios.post("/user/updateCredit/"+this.props.auth.user.id, credits)
                 .then(res => console.log(res.data));
 
             alert("Account successfully updated with Rs." +this.state.amount);

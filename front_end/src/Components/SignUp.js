@@ -4,12 +4,12 @@ import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Form} from 'react-bootstrap
 import axios from 'axios';
 import {Link, withRouter} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from "./footer"
+import Footer from "./Common/footer"
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/authActions";
 import classnames from "classnames";
-import NavBar from "./Navbar";
+import NavBar from "./Common/Navbar";
 import loki from "../assets/images/footer.png"
 import footer from "../assets/images/footer.png";
 

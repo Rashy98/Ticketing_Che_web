@@ -16,3 +16,7 @@
     outline: 2px solid #f00;
 }
 
+[type=number] {
+    border: 2px solid red;
+}
+
