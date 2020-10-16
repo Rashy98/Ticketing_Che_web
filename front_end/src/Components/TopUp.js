@@ -1,12 +1,13 @@
 import React,{Component} from "react";
 import {Row, Col, Container, Nav} from 'react-bootstrap';
-import {Navbar, NavItem, NavDropdown, MenuItem, Form} from 'react-bootstrap';
+import {Navbar} from 'react-bootstrap';
 import NavBar from "./Navbar";
 import visa from '../assets/images/visa.png';
 import master from '../assets/images/Master.png';
-import css from '../assets/css/topup.css';
+import '../assets/css/topup.css';
 import axios from 'axios';
 import Footer from "./footer"
+import NavB from './Navbar'
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
@@ -77,9 +78,8 @@ class TopUp extends Component{
 
     componentDidMount() {
         axios.get("/user/").then(response => {
-            console.log(response.data);
             for(let x = 0 ; x < response.data.length; x++){
-                if(response.data[x]._id === "5f6754a91cc10b4a5c380ba7"){
+                if(response.data[x]._id === this.props.auth.user.id){
                     this.setState({
                             earlierCred : response.data[x].Credits,
                             history : response.data[x].history
@@ -117,8 +117,8 @@ class TopUp extends Component{
             const credits = {
                 Credits: newCredit
             }
-
-            axios.post("/user/updateCredit/5f6754a91cc10b4a5c380ba7", credits)
+            const  id = this.props.auth.user.id;
+            axios.post("/user/updateCredit/"+id, credits)
                 .then(res => console.log(res.data));
 
             alert("Account successfully updated with Rs." +this.state.amount);
@@ -133,8 +133,9 @@ class TopUp extends Component{
 
     render() {
         const {user} = this.props.auth
-        console.log(user)
+        console.log(user.id)
         return (
+
             <div style={{backgroundColor:'lightgrey' , height:'62em',width:'101%'}}>
                 <Navbar style={{
                     backgroundImage: 'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))',
@@ -205,12 +206,12 @@ class TopUp extends Component{
                 <Row style ={{backgroundColor:'white'}}>
                 <Col style ={{width:'101%'}} >
 
-                    <form className='form-inline mt-5'>
+                    <form className='form-inline mt-5 ml-5'>
                         <label>Add Amount</label>
-                        <input type='number' style={{borderRadius:'0.4em'}} className='ml-5' placeholder='Amount in LKR' onChange={this.onAmountChange}
+                        <input type='number' style={{borderRadius:'0.4em', border:'2px solid grey', width:'10em', height:'1.5em'}} className='ml-5' placeholder='Amount in LKR' onChange={this.onAmountChange}
                                value={this.state.amount} required/>
                     </form>
-                    <form className='form-inline mt-5'>
+                    <form className='form-inline mt-5 ml-5'>
                         <label>Select Card type</label>
                         <input type="radio" name="test"  value="visa" id="inlineRadio" className="form-check-input"  checked={this.state.selectedRadio ==="visa"} />
                                 <img src={visa} style={{width:'3em'}} className="form-check-label ml-4" value="visa" onClick={()=>this.onRadioChange('visa')} />
@@ -219,21 +220,21 @@ class TopUp extends Component{
                                 <img src={master} style={{width:'3em',height:'3em'}}  id="inlineRadio" className='ml-4'  onClick={()=>this.onRadioChange('master')}  value="master"/>
 
                     </form>
-                    <form className='form-inline mt-5'>
+                    <form className='form-inline mt-5 ml-5'>
                         <label>Card Details</label>
-                        <input type='text' style={{borderRadius:'0.4em'}} className='ml-5' placeholder='Name on card' onChange={this.onChangeName}  value={this.state.name}/>
+                        <input type='text' style={{borderRadius:'0.4em', border:'2px solid grey', width:'10em', height:'1.5em'}} className='ml-5' placeholder='Name on card' onChange={this.onChangeName}  value={this.state.name}/>
                     </form>
                     <br/>
-                    <input type='text' style={{borderRadius:'0.4em',width:'92%'}} className='ml-5'placeholder='Card Number' required/>
+                    <input type='text' style={{borderRadius:'0.4em', border:'2px solid grey', width:'10em', height:'1.5em', marginLeft:'9.5em'}} placeholder='Card Number' required/>
 
                     <form className='form-inline mt-3'>
-                        <input type='text' style={{borderRadius:'0.4em',marginLeft:'2.9em',width:'3em'}} placeholder='CSV' onChange={this.onChangeCSV} value={this.state.csv}/>
-                        <input type='text' style={{borderRadius:'0.4em',marginLeft:'1.7em',width:'3em'}} placeholder='MM' onChange={this.onChangeMM} value={this.state.mm}/>
-                        <input type='text' style={{borderRadius:'0.4em',marginLeft:'1.7em',width:'3em'}} placeholder='YY' onChange={this.onChangeYY} value={this.state.yy}/>
+                        <input type='number' style={{borderRadius:'0.4em',marginLeft:'9.5em',width:'3em', border:'2px solid grey', height:'1.5em'}} placeholder='CSV' onChange={this.onChangeCSV} value={this.state.csv}/>
+                        <input type='number' style={{borderRadius:'0.4em',marginLeft:'0.3em',width:'3em',border:'2px solid grey', height:'1.5em'}} placeholder='MM' onChange={this.onChangeMM} value={this.state.mm}/>
+                        <input type='number' style={{borderRadius:'0.4em',marginLeft:'0.3em',width:'3em',border:'2px solid grey', height:'1.5em'}} placeholder='YY' onChange={this.onChangeYY} value={this.state.yy}/>
                     </form>
                     <br/>
                     <button style={{marginLeft:'18em',
-                        borderRadius:'2em',padding:'0.4em',width:'5em',marginBottom:'5em', backgroundImage:'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))'}}
+                        borderRadius:'2em',padding:'0.4em',width:'5em',marginBottom:'5em', backgroundImage:'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))',color:'white',border:"none"}}
                         type='submit'
                             onClick={this.onPay}
                     >
@@ -241,11 +242,11 @@ class TopUp extends Component{
                     </button>
                 </Col>
                     <div style={{borderLeft: '2px solid darkgrey',
-                        height: '500px',
+                        height: '498px',
                         position: 'absolute',
                         left: '50%',
                         marginLeft: '-3px',
-                        marginTop:'20.8em',
+                        marginTop:'17.7em',
                         top: '0'}} />
                     <Col xs style ={{marginLeft:'1em'}}>
                         <form className='form-inline mt-5'>
