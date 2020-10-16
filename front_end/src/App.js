@@ -21,7 +21,7 @@ import Passenger_Stats from "./Components/Statistics/Passenger_Stats";
 import Crowd_Stats from "./Components/Statistics/Crowd_Stats";
 import Fare_Stat from "./Components/Statistics/Fare_Stat";
 
-import Dashboard from "./Components/Navbar";
+import Dashboard from "./Components/Common/Navbar";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
     // Set auth token header auth
@@ -51,11 +51,11 @@ function App() {
                  <Switch>
                      <PrivateRoute exact path="/" component={TopUp} />
                      <PrivateRoute path="/History" exact component={PastJourneys}/>
-                     <PrivateRoute path="/Help"  component={Stat_Main}/>
-                     <PrivateRoute path="/ViewInspectors" component={Inspection_Stat}/>
-                     <PrivateRoute path="/ViewFare" component={Fare_Stat}/>
-                     <PrivateRoute path="/ViewCrowd" component={Crowd_Stats}/>
-                     <PrivateRoute path="/ViewPassengers" component={Passenger_Stats}/>
+                     <PrivateRoute path="/Help" exact component={Stat_Main}/>
+                     <PrivateRoute path="/ViewInspectors" exact component={Inspection_Stat}/>
+                     <PrivateRoute path="/ViewFare" exact component={Fare_Stat}/>
+                     <PrivateRoute path="/ViewCrowd" exact component={Crowd_Stats}/>
+                     <PrivateRoute path="/ViewPassengers" exact component={Passenger_Stats}/>
 
                  </Switch>
            </Router>

@@ -5,7 +5,7 @@ import Passenger from "../../assets/images/Passenger.png";
 import Money from "../../assets/images/Money.png";
 import Inspection from "../../assets/images/inspection.png";
 import Crowd from "../../assets/images/crowd.png";
-import Footer from "../footer";
+import Footer from "../Common/footer";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Spinner from "react-bootstrap/Spinner";

@@ -1,13 +1,13 @@
 import React,{Component} from "react";
 import {Row, Col, Container, Nav} from 'react-bootstrap';
 import {Navbar} from 'react-bootstrap';
-import NavBar from "./Navbar";
+import NavBar from "./Common/Navbar";
 import visa from '../assets/images/visa.png';
 import master from '../assets/images/Master.png';
 import '../assets/css/topup.css';
 import axios from 'axios';
-import Footer from "./footer"
-import NavB from './Navbar'
+import Footer from "./Common/footer"
+import NavB from './Common/Navbar'
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";

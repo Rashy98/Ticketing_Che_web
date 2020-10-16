@@ -5,7 +5,7 @@ import Passenger from "../../assets/images/Passenger.png";
 import Money from "../../assets/images/Money.png";
 import Inspection from "../../assets/images/inspection.png";
 import Crowd from "../../assets/images/crowd.png";
-import Footer from "../footer";
+import Footer from "../Common/footer";
 class Stat_Main extends Component{
     render() {
         return(
@@ -67,16 +67,16 @@ class Stat_Main extends Component{
                     justifyContent: 'center',
                     textAlign: 'center'}}> <h1 style={{fontFamily:'monospace'}}>Generate Reports</h1>
                 </Row>
-                <div style={{backgroundColor: 'lightgray', marginTop: '-2em'}}>
-                    <Row style ={{marginLeft:'5em', display: 'flex',
-                        flexDirection: 'column'}}> <h4>Report Categories</h4>
+                <div style={{backgroundColor: 'gainsboro', marginTop: '-2em', height:'45em'}}>
+                    <Row style ={{marginLeft:'5em', display: 'flex',marginTop:'2em',
+                        flexDirection: 'column'}}> <h4 style={{marginTop:'2em'}}>Report Categories</h4>
                     </Row>
                         <div>
                             <Row>
                             <Col>
                                 <Row>
                                     <Col>
-                                        <button style={{marginLeft:'10em',padding:'2em', border: "none",width:'12em'}}>
+                                        <button style={{marginLeft:'10em',padding:'2em', border: "none",width:'12em', marginTop:'2em'}}>
                                             <img src={Inspection} style={{width:'8em', height:'8em'}} className="form-check-label" value="Inspection" />
                                         </button>
                                     </Col>
@@ -90,7 +90,7 @@ class Stat_Main extends Component{
                             <Col>
                                 <Row>
                                     <Col>
-                                        <button style={{marginLeft:'7em',padding:'2em', border: "none",width:'12em'}}>
+                                        <button style={{marginLeft:'7em',padding:'2em', border: "none",width:'12em',marginTop:'2em'}}>
                                             <img src={Passenger} style={{width:'8em', height:'8em'}} className="form-check-label" value="Passenger" />
                                         </button>
                                     </Col>
@@ -104,7 +104,7 @@ class Stat_Main extends Component{
                                 <Col>
                                 <Row>
                                     <Col>
-                                        <button style={{marginLeft:'5em',padding:'2em', border: "none",width:'12em'}}>
+                                        <button style={{marginLeft:'5em',padding:'2em', border: "none",width:'12em',marginTop:'2em'}}>
                                             <img src={Money} style={{width:'8em', height:'8em'}} className="form-check-label" value="Money" />
                                         </button>
                                     </Col>
@@ -118,7 +118,7 @@ class Stat_Main extends Component{
                                 <Col>
                                 <Row>
                                     <Col>
-                                        <button style={{marginLeft:'4em',padding:'2em', border: "none",width:'12em'}}>
+                                        <button style={{marginLeft:'4em',padding:'2em', border: "none",width:'12em',marginTop:'2em'}}>
                                             <img src={Crowd} style={{width:'8em', height:'8em'}} className="form-check-label" value="Crowd" />
                                         </button>
                                     </Col>
@@ -134,7 +134,7 @@ class Stat_Main extends Component{
                     <Col></Col>
                     <Col>
                         <Row>
-                            <button style={{marginLeft:'75em',
+                            <button style={{marginLeft:'95em',marginTop:'2em',
                                 borderRadius:'2em', border: "none", padding:'0.4em',width:'12em', color: 'white', backgroundImage:'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))'}}
                                     type='submit'
                                     onClick={this.onPay}
@@ -144,7 +144,7 @@ class Stat_Main extends Component{
                             </button>
                         </Row>
                         <Row>
-                            <button style={{marginLeft:'75em',
+                            <button style={{marginLeft:'95em',
                                 borderRadius:'2em', border: "none", padding:'0.4em',width:'12em',marginBottom:'5em', color: 'white',  backgroundImage:'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))'}}
                                     type='submit'
                                     onClick={this.onPay}

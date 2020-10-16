@@ -1,5 +1,5 @@
 import React from "react";
-import footer from "../assets/images/footer.png"
+import footer from "../../assets/images/footer.png"
 
 const Footer = () => (
     <div className="footer mt-lg-n4">

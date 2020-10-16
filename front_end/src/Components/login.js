@@ -1,16 +1,13 @@
 import React,{Component} from "react";
-import {Row,Col,Container} from 'react-bootstrap';
-import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Form} from 'react-bootstrap';
-import axios from 'axios';
+import {Row,Container} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../actions/authActions";
 import classnames from "classnames";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from "./footer"
-import NavBar from "./Navbar";
-import footer from "../assets/images/footer.png";
+import Footer from "./Common/footer"
 import login1 from "../assets/images/login.png";
 
 
