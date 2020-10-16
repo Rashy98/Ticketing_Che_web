@@ -94,6 +94,7 @@ router.post("/login", (req, res) => {
     const password = req.body.password;
 // Find user by email
     User.findOne({ email }).then(user => {
+        console.log(user.email)
         // Check if user exists
         if (!user) {
             return res.status(404).json({ msg: "Email not found",emailnotfound:"Email not found" });
@@ -105,7 +106,8 @@ router.post("/login", (req, res) => {
                 // Create JWT Payload
                 const payload = {
                     id: user.id,
-                    name: user.name
+                    name: user.name,
+                    type: user.email
                 };
 // Sign token
                 jwt.sign(
@@ -116,9 +118,11 @@ router.post("/login", (req, res) => {
                     },
                     (err, token) => {
                         res.status(200).json({
+
                             success: true,
                             token: "Bearer " + token,
                             id:payload.id,
+                            type: payload.type
                         });
                     }
                 );

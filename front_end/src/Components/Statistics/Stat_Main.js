@@ -6,8 +6,15 @@ import Money from "../../assets/images/Money.png";
 import Inspection from "../../assets/images/inspection.png";
 import Crowd from "../../assets/images/crowd.png";
 import Footer from "../Common/footer";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {logoutUser} from "../../actions/authActions";
+
+
 class Stat_Main extends Component{
+
     render() {
+
         return(
             <div>
                 <Navbar style={{
@@ -162,3 +169,4 @@ class Stat_Main extends Component{
     }
 }
 export default Stat_Main;
+

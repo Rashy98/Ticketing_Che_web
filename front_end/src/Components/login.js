@@ -30,8 +30,18 @@ class login extends Component{
         }
     }
     componentWillReceiveProps(nextProps) {
+        console.log(localStorage.getItem("jwtToken"))
+        console.log(localStorage.getItem("user"))
+
         if (nextProps.auth.isAuthenticated) {
-            this.props.history.push("/"); // push user to dashboard when they login
+            if (localStorage.getItem("user") === "admin@destino.com"){
+                this.props.history.push("/Help"); // push admin to dashboard when they login
+
+            }
+            else {
+                this.props.history.push("/"); // push user to dashboard when they login
+
+            }
         }
         if (nextProps.errors) {
             this.setState({

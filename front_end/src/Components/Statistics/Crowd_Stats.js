@@ -10,6 +10,9 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Spinner from "react-bootstrap/Spinner";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {logoutUser} from "../../actions/authActions";
 const Session = props =>(
     <tr>
         <td style={{justifyContent: 'center', textAlign: 'center',color: 'white',fontSize: '15px'}}>{props.Crow.station}</td>
@@ -24,6 +27,11 @@ const EndSt = props =>(
 )
 
 class Crowd_Stats extends Component{
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+    };
+
     constructor(props) {
         super(props);
 
@@ -61,6 +69,8 @@ class Crowd_Stats extends Component{
         })
     }
     render() {
+        const {user} = this.props.auth
+        console.log(user.id)
         return(
             <div>
                 <Navbar style={{
@@ -179,4 +189,15 @@ class Crowd_Stats extends Component{
         )
     }
 }
-export default Crowd_Stats;
+// export default Crowd_Stats;
+Crowd_Stats.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+export default connect(
+    mapStateToProps,
+    { logoutUser }
+)(Crowd_Stats);
