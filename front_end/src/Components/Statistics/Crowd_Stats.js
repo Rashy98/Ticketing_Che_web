@@ -187,8 +187,7 @@ class Crowd_Stats extends Component{
                         </button>
                     </Row>
                 </Col>
-                <Footer>
-                </Footer>
+                <Footer />
             </div>
         )
     }

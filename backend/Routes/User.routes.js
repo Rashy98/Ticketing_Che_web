@@ -17,13 +17,14 @@ const app = express();
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-// app.use('/',router);
 
+//Get all users
 router.route('/').get((req, res) => {
     User.find()
         .then(users => res.json(users))
         .catch(err => res.status(400).json('Error: ' + err));
 });
+
 
 router.route('/add').post(async (req, res) => {
     console.log(req.body);
@@ -32,10 +33,6 @@ router.route('/add').post(async (req, res) => {
     const url = req.body.url;
     let qrcode="";
 
-    // qr.toDataURL(url,async (err, src)=>{
-    //     await qrcode = src;
-    //     console.log(src)
-    // })
     qrcode = await qr.toDataURL(url)
     console.log(qrcode)
 
@@ -79,27 +76,25 @@ router.route('/add').post(async (req, res) => {
         }
     });
 
-    // user.save()
-    //     .then(() => res.json({qr:qrcode}))
-    //     .catch(err => res.status(400).json('Error: ' + err));
 });
 router.post("/login", (req, res) => {
     // Form validation
     const { errors, isValid } = validateLoginInput(req.body);
-// Check validation
+    // Check validation
     if (!isValid) {
         return res.status(400).json(errors);
     }
     const email = req.body.email;
     const password = req.body.password;
-// Find user by email
+
+    // Find user by email
     User.findOne({ email }).then(user => {
         console.log(user.email)
         // Check if user exists
         if (!user) {
             return res.status(404).json({ msg: "Email not found",emailnotfound:"Email not found" });
         }
-// Check password
+    // Check password
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
                 // User matched
@@ -109,7 +104,7 @@ router.post("/login", (req, res) => {
                     name: user.name,
                     type: user.email
                 };
-// Sign token
+                // Sign token
                 jwt.sign(
                     payload,
                     keys.secretOrKey,

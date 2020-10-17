@@ -195,7 +195,7 @@ class PastJourneys extends Component{
                     justifyContent: 'center',
                     textAlign: 'center'}}> <h1 style={{fontFamily:'monospace'}}>Past Journeys</h1></Row>
 
-                <Container className='mt-5 ' style={{width:'75em',minHeight:'40em'}}>
+                <Container className='mt-5 ' style={{width:'75em',minHeight:'40em'}} >
 
                     <Row style ={{backgroundColor:'white'}}>
                         <Col xs style ={{marginLeft:'1em',marginBottom:'5em'}}>

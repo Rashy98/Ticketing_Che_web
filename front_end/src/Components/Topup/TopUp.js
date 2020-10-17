@@ -1,16 +1,16 @@
 import React,{Component} from "react";
 import {Row, Col, Container, Nav} from 'react-bootstrap';
 import {Navbar} from 'react-bootstrap';
-import NavBar from "./Common/Navbar";
-import visa from '../assets/images/visa.png';
-import master from '../assets/images/Master.png';
-import '../assets/css/topup.css';
+import NavBar from "../Common/Navbar";
+import visa from '../../assets/images/visa.png';
+import master from '../../assets/images/Master.png';
+import '../../assets/css/topup.css';
 import axios from 'axios';
-import Footer from "../Components/Common/footer"
+import Footer from "../../Components/Common/footer"
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {logoutUser} from "../actions/authActions";
+import {logoutUser} from "../../actions/authActions";
 
 
 

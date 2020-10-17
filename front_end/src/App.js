@@ -9,7 +9,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import TopUp from './Components/TopUp'
+import TopUp from './Components/Topup/TopUp'
 import PastJourneys from "./Components/History/PastJourneys";
 import SignUp from './Components/SignUp';
 import Login from './Components/login'

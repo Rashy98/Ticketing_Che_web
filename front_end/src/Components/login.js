@@ -109,7 +109,7 @@ class login extends Component{
                 {/*    <img src={this.state.qrcode} alt="Logo" />;*/}
                 {/*</div>*/}
                 <Container className='mt-5 mb-3 ' style={{width:'40em',height:'36em',backgroundColor:"White",borderRadius:'20px'}}>
-                    <form noValidate onSubmit={this.onSubmit}>
+                    <form noValidate onSubmit={this.onSubmit} className='login'>
                         <br/>
                         <div className=" ">
                             <img src={login1} alt="Logo" style={{height:"150px",marginLeft:"30%"}}/>;
