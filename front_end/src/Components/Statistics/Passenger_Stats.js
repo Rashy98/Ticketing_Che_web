@@ -10,6 +10,9 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {logoutUser} from "../../actions/authActions";
 
 const Session = props =>(
     <tr>
@@ -19,6 +22,12 @@ const Session = props =>(
     </tr>
 )
 class Passenger_Stats extends Component{
+
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+    };
+
     constructor(props) {
         super(props);
 
@@ -49,6 +58,9 @@ class Passenger_Stats extends Component{
     }
 
     render() {
+        const {user} = this.props.auth
+        console.log(user.id)
+
         return(
             <div>
                 <Navbar style={{
@@ -143,4 +155,15 @@ class Passenger_Stats extends Component{
         )
     }
 }
-export default Passenger_Stats;
+//export default Passenger_Stats;
+Passenger_Stats.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+export default connect(
+    mapStateToProps,
+    { logoutUser }
+)(Passenger_Stats);

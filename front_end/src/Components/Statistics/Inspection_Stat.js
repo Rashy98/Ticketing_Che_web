@@ -6,6 +6,9 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {logoutUser} from "../../actions/authActions";
 
 const Session = props =>(
     <tr>
@@ -21,6 +24,11 @@ const Session = props =>(
 )
 
 class Inspection_Stat extends Component{
+
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+    };
 
     constructor(props) {
         super(props);
@@ -52,6 +60,8 @@ class Inspection_Stat extends Component{
     }
 
     render() {
+        const {user} = this.props.auth
+        console.log(user.id)
         return(
             <div>
                 <Navbar style={{
@@ -154,4 +164,15 @@ class Inspection_Stat extends Component{
 
 
 }
-export default Inspection_Stat;
+//export default Inspection_Stat;
+Inspection_Stat.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+export default connect(
+    mapStateToProps,
+    { logoutUser }
+)(Inspection_Stat);
