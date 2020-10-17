@@ -12,7 +12,7 @@ import login1 from "../assets/images/login.png";
 
 
 
-class login extends Component{
+ class login extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -121,8 +121,9 @@ class login extends Component{
                                    onChange={this.onChange}
                                    value={this.state.email}
                                    error={errors.email}
+                                   ref="email"
                                    id="email"
-                                   type="email"
+                                   name="email"
                                    className={classnames("", {
                                        invalid: errors.email || errors.emailnotfound
                                    })}
@@ -141,7 +142,7 @@ class login extends Component{
                                    value={this.state.password}
                                    error={errors.password}
                                    id="password"
-                                   type="password"
+                                   name="password"
                                    className={classnames("", {
                                        invalid: errors.password || errors.passwordincorrect
                                    })}
@@ -153,7 +154,7 @@ class login extends Component{
                         </div>
                         <br/><br/>
 
-                        <button type="submit" className="btn btn-primary btn-block">Log In</button>
+                        <button type="submit" id="add" className="btn btn-primary btn-block">Log In</button>
                         <p className="forgot-password text-right">
                             Haven't Registered <a href="/Signup">Register?</a>
                         </p>
