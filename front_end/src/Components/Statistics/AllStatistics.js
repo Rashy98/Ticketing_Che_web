@@ -16,6 +16,7 @@ class AllStatistics extends Component {
 
     constructor(props) {
         super(props);
+        //Variables
         this.state = {
             users: [],
             Passengers: [],
@@ -44,7 +45,7 @@ class AllStatistics extends Component {
         this.InAndOutFromStation(user.data.startStations, user.data.endStations);
     }
 
-
+    //Passenger Bar Chart
     CountAccordingToPath(userData) {
 
         let path = [];
@@ -63,6 +64,7 @@ class AllStatistics extends Component {
                     label: 'Passenger count',
                     data: count
                     ,
+                    //Color codes for chart
                     backgroundColor: [
                         '#bc5090',
                         '#ef5675',
@@ -96,7 +98,7 @@ class AllStatistics extends Component {
         })
     }
 
-
+    //Start and End Stations
     InAndOutFromStation(startData, endData) {
 
         let Stands = [];

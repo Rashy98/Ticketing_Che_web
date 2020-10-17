@@ -14,6 +14,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
 const Fare = props =>(
+    //Generate table data
     <tr>
         <td style={{justifyContent: 'center', fontWeight:'bold',textAlign: 'center',color: 'RGBA(182,82,80)',fontSize: '15px'}}>{props.fare.busStand}</td>
         <td style={{justifyContent: 'center',fontWeight:'bold', textAlign: 'center',color: 'RGBA(115,71,108)',fontSize: '15px'}}>{props.fare.DistanceFromCol}</td>
@@ -29,7 +30,7 @@ class Fare_Stat extends Component{
 
     constructor(props) {
         super(props);
-
+        //variable
         this.state = {
             Fares:[],
             loading: true,
