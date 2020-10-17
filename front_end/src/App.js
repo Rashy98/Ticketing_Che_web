@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import TopUp from './Components/TopUp'
-import PastJourneys from "./Components/PastJourneys";
+import PastJourneys from "./Components/History/PastJourneys";
 import SignUp from './Components/SignUp';
 import Login from './Components/login'
 import PrivateRoute from "./Components/private-route/PrivateRoute";
@@ -20,6 +20,7 @@ import Inspection_Stat from "./Components/Statistics/Inspection_Stat";
 import Passenger_Stats from "./Components/Statistics/Passenger_Stats";
 import Crowd_Stats from "./Components/Statistics/Crowd_Stats";
 import Fare_Stat from "./Components/Statistics/Fare_Stat";
+import All_Stat from "./Components/Statistics/AllStatistics";
 
 import Dashboard from "./Components/Common/Navbar";
 // Check for token to keep user logged in
@@ -56,6 +57,7 @@ function App() {
                      <PrivateRoute path="/ViewFare" exact component={Fare_Stat}/>
                      <PrivateRoute path="/ViewCrowd" exact component={Crowd_Stats}/>
                      <PrivateRoute path="/ViewPassengers" exact component={Passenger_Stats}/>
+                     <PrivateRoute path="/Statistics" exact component={All_Stat}/>
 
                  </Switch>
            </Router>

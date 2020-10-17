@@ -6,8 +6,7 @@ import visa from '../assets/images/visa.png';
 import master from '../assets/images/Master.png';
 import '../assets/css/topup.css';
 import axios from 'axios';
-import Footer from "./Common/footer"
-import NavB from './Common/Navbar'
+import Footer from "../Components/Common/footer"
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
@@ -19,6 +18,8 @@ class TopUp extends Component{
 
     constructor(props) {
         super(props);
+
+        // variables
         this.state={
             selectedRadio :"visa",
             amount:0.00,
@@ -40,6 +41,8 @@ class TopUp extends Component{
         this.onPay = this.onPay.bind(this);
 
     }
+
+    //
     onRadioChange = type => {
         console.log(type);
         this.setState({
@@ -167,17 +170,10 @@ class TopUp extends Component{
                                 </Link>
                             </Nav.Link>
                             <Nav.Link>
-                                <Link className=" nav-link " to="/Help" style={{color: 'white', fontSize: '1.2em'}}>
+                                <Link className=" nav-link " to="/" style={{color: 'white', fontSize: '1.2em'}}>
                                     Help
                                 </Link>
                             </Nav.Link>
-
-                            {/*<Nav>*/}
-                            {/*    <Nav.Link><a className=" nav-link mr-sm-2" style={{color: 'white', fontSize: '1.2em'}}>*/}
-                            {/*        Logout*/}
-                            {/*    </a>*/}
-                            {/*    </Nav.Link>*/}
-                            {/*</Nav>*/}
                         </Nav>
                         <button
                             style={{

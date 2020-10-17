@@ -15,8 +15,8 @@ import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
 const Fare = props =>(
     <tr>
-        <td style={{justifyContent: 'center', textAlign: 'center',color: 'white',fontSize: '15px'}}>{props.fare.busStand}</td>
-        <td style={{justifyContent: 'center', textAlign: 'center',color: 'white',fontSize: '15px'}}>{props.fare.DistanceFromCol}</td>
+        <td style={{justifyContent: 'center', fontWeight:'bold',textAlign: 'center',color: 'RGBA(182,82,80)',fontSize: '15px'}}>{props.fare.busStand}</td>
+        <td style={{justifyContent: 'center',fontWeight:'bold', textAlign: 'center',color: 'RGBA(115,71,108)',fontSize: '15px'}}>{props.fare.DistanceFromCol}</td>
     </tr>
 )
 
@@ -65,7 +65,7 @@ class Fare_Stat extends Component{
                     width: "100%"
                 }} expand="lg">
                     <Navbar.Brand>
-                        <Link to='/'>
+                        <Link to='/Help'>
                             <p className="menu__logo navbar-brand "
                                style={{
                                    fontSize: '2.5em',
@@ -79,12 +79,12 @@ class Fare_Stat extends Component{
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link>
-                                <Link className=" nav-link " to="/" style={{color: 'white', fontSize: '1.2em'}}>
+                                <Link className=" nav-link " to="/Statistics" style={{color: 'white', fontSize: '1.2em'}}>
                                     Statistics
                                 </Link>
                             </Nav.Link>
                             <Nav.Link>
-                                <Link className=" nav-link " to="/History" style={{color: 'white', fontSize: '1.2em'}}>
+                                <Link className=" nav-link " to="/Help" style={{color: 'white', fontSize: '1.2em'}}>
                                     Reports
                                 </Link>
                             </Nav.Link>
@@ -111,14 +111,14 @@ class Fare_Stat extends Component{
                         </button>
                     </Navbar.Collapse>
                 </Navbar>
-                <Row style ={{marginLeft:'5em', display: 'flex',
+                <Row style ={{backgroundColor:'white', display: 'flex',
+                    flexDirection: 'column',
                     justifyContent: 'center',
-                    textAlign: 'center',
-                    flexDirection: 'column'}}> <h4>Fare Details</h4>
-                </Row>
-                <div id="page-container" className='main mb-4'>
+                    textAlign: 'center'}}> <h3 style={{fontFamily:'Fira Sans'}}>Fare Details</h3></Row>
+
+                <div id="page-container" className='main mb-4' style={{minHeight:'38em'}}>
                     <Container>
-                        <Table responsive className='bg-secondary text-center' style={{width:'60em', marginLeft:'6em'}}>
+                        <Table responsive className='bg-light text-center' style={{width:'60em', marginLeft:'6em',font:'purple'}}>
                             <thead>
                             {this.state.loading ? <center><Spinner animation="border" /></center> :
                                 <tr>
@@ -136,7 +136,13 @@ class Fare_Stat extends Component{
                 <Col>
                     <Row>
                         <button style={{marginLeft:'75em',
-                            borderRadius:'2em', border: "none", padding:'0.4em',width:'12em', color: 'white', backgroundImage:'linear-gradient(RGBA(182,82,80), RGBA(115,71,108))'}}
+                            width: "120px",
+                            borderRadius: "20px",
+                            letterSpacing: "1.5px",
+                            marginRight:"2rem",
+                            color:"black",
+                            border:'none',
+                            backgroundColor:'white'}}
                                 type='submit'
                                 onClick={window.print}
                                 className="float-right mr-2 mb-4"

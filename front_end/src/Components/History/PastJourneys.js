@@ -1,15 +1,15 @@
 import React,{Component} from "react";
 import {Row, Col, Container, Navbar, Nav} from 'react-bootstrap';
-import NavBar from "./Common/Navbar";
-import visa from '../assets/images/visa.png';
-import master from '../assets/images/Master.png';
-import css from '../assets/css/topup.css';
+import NavBar from "../Common/Navbar";
+import visa from '../../assets/images/visa.png';
+import master from '../../assets/images/Master.png';
+import css from '../../assets/css/topup.css';
 import axios from 'axios';
-import Footer from "./Common/footer"
+import Footer from "../Common/footer"
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {logoutUser} from "../actions/authActions";
+import {logoutUser} from "./../../actions/authActions";
 
 
 
@@ -32,6 +32,8 @@ class PastJourneys extends Component{
         this.onPay = this.onPay.bind(this);
 
     }
+
+    //Handle radio buttons
     onRadioChange = type => {
         console.log(type);
         this.setState({
@@ -193,7 +195,7 @@ class PastJourneys extends Component{
                     justifyContent: 'center',
                     textAlign: 'center'}}> <h1 style={{fontFamily:'monospace'}}>Past Journeys</h1></Row>
 
-                <Container className='mt-5 ' style={{width:'50em',minHeight:'40em'}}>
+                <Container className='mt-5 ' style={{width:'75em',minHeight:'40em'}}>
 
                     <Row style ={{backgroundColor:'white'}}>
                         <Col xs style ={{marginLeft:'1em',marginBottom:'5em'}}>
@@ -201,6 +203,8 @@ class PastJourneys extends Component{
                                 <Col style={{ marginLeft: '3em'}}><h5>Starting Point</h5></Col>
                                 <Col  style={{ marginLeft: '3em'}}><h5>Ending point</h5></Col>
                                 <Col style={{ marginLeft: '3.5em'}}><h5>Fare</h5></Col>
+                                <Col style={{ marginLeft: '3em'}}><h5>Distance</h5></Col>
+                                <Col style={{ marginLeft: '3em'}}><h5>Date</h5></Col>
                             </form>
                             {
 
@@ -220,6 +224,12 @@ class PastJourneys extends Component{
                                                         <label type='text' style={{marginLeft:'2.5em',fontSize:'18px'}}
                                                                >Rs. {his['Fare']}</label>
                                                     </Col>
+                                                    <Col>
+                                                        <label style={{borderRadius: '0.4em', marginLeft: '3em',fontSize:'18px'}}>{his['Distance']} Km</label>
+                                                    </Col>
+                                                    <Col>
+                                                        <label style={{borderRadius: '0.4em', marginLeft: '1.5em',fontSize:'18px'}}>{his['date']}</label>
+                                                    </Col>
                                                 </Row>
 
                                             </div>
@@ -228,7 +238,6 @@ class PastJourneys extends Component{
                                 })
                             }
 
-                            {/*<label  style={{borderRadius:'0.4em',marginLeft:'4.5em'}}>Colombo - Rajagiriya</label>*/}
 
                         </Col>
                     </Row>

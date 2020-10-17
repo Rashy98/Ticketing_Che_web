@@ -23,7 +23,7 @@ class Stat_Main extends Component{
                     width: "100%"
                 }} expand="lg">
                     <Navbar.Brand>
-                        <Link to='/'>
+                        <Link to='/Help'>
                             <p className="menu__logo navbar-brand "
                                style={{
                                    fontSize: '2.5em',
@@ -37,12 +37,12 @@ class Stat_Main extends Component{
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link>
-                                <Link className=" nav-link " to="/" style={{color: 'white', fontSize: '1.2em'}}>
+                                <Link className=" nav-link " to="/Statistics" style={{color: 'white', fontSize: '1.2em'}}>
                                     Statistics
                                 </Link>
                             </Nav.Link>
                             <Nav.Link>
-                                <Link className=" nav-link " to="/History" style={{color: 'white', fontSize: '1.2em'}}>
+                                <Link className=" nav-link " to="/Help" style={{color: 'white', fontSize: '1.2em'}}>
                                     Reports
                                 </Link>
                             </Nav.Link>
