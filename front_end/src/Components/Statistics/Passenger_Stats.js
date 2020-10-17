@@ -15,6 +15,7 @@ import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
 
 const Session = props =>(
+    //Generate table data
     <tr>
         <td style={{justifyContent: 'center', textAlign: 'center',color: 'RGBA(182,82,80)',fontSize: '15px'}}>{props.Pass.from}</td>
         <td style={{justifyContent: 'center', textAlign: 'center',color: 'RGBA(115,71,108)',fontSize: '15px'}}>{props.Pass.to}</td>
@@ -31,6 +32,7 @@ class Passenger_Stats extends Component{
     constructor(props) {
         super(props);
 
+        //variable
         this.state = {
             Passengers:[],
             loading: true,

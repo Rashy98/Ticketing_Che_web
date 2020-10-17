@@ -9,13 +9,18 @@ import Spinner from "react-bootstrap/Spinner";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
+
+//Start Stations
 const Session = props =>(
+    //Generate table data
     <tr>
         <td style={{justifyContent: 'center', textAlign: 'center',color: 'RGBA(182,82,80)',fontSize: '15px'}}>{props.Crow.station}</td>
         <td style={{justifyContent: 'center', textAlign: 'center',color: 'RGBA(115,71,108)',fontSize: '15px'}}>{props.Crow.count}</td>
     </tr>
 )
+//End Stations
 const EndSt = props =>(
+    //Generate table data
     <tr>
         <td style={{justifyContent: 'center', textAlign: 'center',color: 'RGBA(182,82,80)',fontSize: '15px'}}>{props.Crow.station}</td>
         <td style={{justifyContent: 'center', textAlign: 'center',color: 'RGBA(115,71,108)',fontSize: '15px'}}>{props.Crow.count}</td>
