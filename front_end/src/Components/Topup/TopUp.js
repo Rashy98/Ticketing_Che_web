@@ -12,8 +12,6 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
 
-
-
 class TopUp extends Component{
 
     constructor(props) {
@@ -42,43 +40,50 @@ class TopUp extends Component{
 
     }
 
-    //
+    //assign radio button value
     onRadioChange = type => {
         console.log(type);
         this.setState({
             selectedRadio:type
         })
-
     }
 
+    //assign amount value
     onAmountChange(e){
         this.setState({
             amount:e.target.value
         })
-        console.log(this.state.earlierCred)
     }
 
+    //assign name value
     onChangeName(e){
         this.setState({
             name:e.target.value
         })
     }
+
+    //assign csv value
     onChangeCSV(e){
         this.setState({
             csv:e.target.value
         })
     }
+
+    //assign month value
     onChangeMM(e){
         this.setState({
             mm:e.target.value
         })
     }
+
+    //assign year value
     onChangeYY(e){
         this.setState({
             yy:e.target.value
         })
     }
 
+    //get user details
     componentDidMount() {
         axios.get("/user/").then(response => {
             for(let x = 0 ; x < response.data.length; x++){
@@ -98,6 +103,7 @@ class TopUp extends Component{
 
     }
 
+    //null field validations
     Validation(){
         let valid = true;
 
@@ -105,22 +111,23 @@ class TopUp extends Component{
             valid = false;
             alert("All fields should be filled");
         }
+
         return valid;
     }
 
+    //add top up value and update the credit balance
     onPay(e){
 
-
-
         if(this.Validation()) {
-            console.log(this.state.earlierCred)
 
             let newCredit = this.state.earlierCred + parseInt(this.state.amount);
             console.log(newCredit);
             const credits = {
                 Credits: newCredit
             }
+
             const  id = this.props.auth.user.id;
+
             axios.post("/user/updateCredit/"+id, credits)
                 .then(res => console.log(res.data));
 
@@ -129,6 +136,8 @@ class TopUp extends Component{
         }
 
     }
+
+    //logout user
     onLogoutClick = e => {
         e.preventDefault();
         this.props.logoutUser();
@@ -136,7 +145,7 @@ class TopUp extends Component{
 
     render() {
         const {user} = this.props.auth
-        console.log(user.id)
+
         return (
 
             <div style={{backgroundColor:'lightgrey' , height:'62em',width:'101%'}}>
@@ -275,16 +284,11 @@ class TopUp extends Component{
                             })
                         }
 
-                        {/*<label  style={{borderRadius:'0.4em',marginLeft:'4.5em'}}>Colombo - Rajagiriya</label>*/}
-
                     </Col>
                 </Row>
                 </Container>
                 <br/><br/>
-                <Footer>
-                </Footer>
-
-
+                <Footer></Footer>
             </div>
 
         );
